@@ -91,3 +91,4 @@ print("Reversed bits:", x.bin)
 x_values = [bit for bit in x]
 
 print("Converted values:", x_values)
+
