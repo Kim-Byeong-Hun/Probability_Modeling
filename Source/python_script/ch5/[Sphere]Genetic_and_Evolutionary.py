@@ -67,6 +67,7 @@ plt.ylabel('x2')
 plt.colorbar(label='Fitness')
 plt.show()
 
+
 # # 최종 세대의 인구에서 각 유전자(변수)의 값을 추출
 # last_gen = np.array([ind for ind in ga_instance.population])
 
@@ -84,3 +85,31 @@ plt.show()
 # plt.xlabel('Variable Index')
 # plt.ylabel('Value')
 # plt.show()
+
+
+# 스캐터 플롯 2개로 나누어서 생성
+fig, axs = plt.subplots(2, figsize=(5, 10))
+
+# 첫 번째 subplot 설정 (x1)
+scatter1 = axs[0].scatter(range(len(last_generation_solutions)),
+                          last_generation_solutions[:, 0],
+                          c=normalized_fitness,
+                          cmap='Greys', alpha=0.5)
+axs[0].set_title('Scatter Plot of the Last Generation Solutions for x1')
+axs[0].set_xlabel('Individual')
+axs[0].set_ylabel('x1 Value')
+fig.colorbar(scatter1, ax=axs[0], label='Fitness')
+
+# 두 번째 subplot 설정 (x2)
+scatter2 = axs[1].scatter(range(len(last_generation_solutions)),
+                          last_generation_solutions[:, 1],
+                          c=normalized_fitness,
+                          cmap='Greys', alpha=0.5)
+axs[1].set_title('Scatter Plot of the Last Generation Solutions for x2')
+axs[1].set_xlabel('Individual')
+axs[1].set_ylabel('x2 Value')
+fig.colorbar(scatter2, ax=axs[1], label='Fitness')
+
+# 전체 그래프의 레이아웃을 조정합니다.
+plt.tight_layout()
+plt.show()
