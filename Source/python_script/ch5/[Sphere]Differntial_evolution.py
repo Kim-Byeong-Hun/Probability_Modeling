@@ -19,7 +19,7 @@ def fitness_function_sphere(solution):
 bounds = [(-5.2, 5.2)] * D
 
 # Differential Evolution 알고리즘 실행
-result = differential_evolution(fitness_function_sphere, bounds, maxiter=100, popsize=50, callback=callback)
+result = differential_evolution(fitness_function_sphere, bounds, maxiter=100, popsize=1000, callback=callback)
 
 # 결과 출력
 print(f"최적 해: {result.x}")

@@ -1,6 +1,7 @@
 import pygad
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 # 각 세대의 적합도를 기록하기 위한 글로벌 리스트
 best_fitness = []
@@ -39,7 +40,10 @@ ga_instance = pygad.GA(num_generations=100,
 
 ga_instance.on_generation = callback_generation
 
+start_time = time.time()
 ga_instance.run()
+print("End")
+print("Time: {:.4f}sec".format((time.time() - start_time)))
 
 # 결과 출력
 solution, solution_fitness, solution_idx = ga_instance.best_solution()

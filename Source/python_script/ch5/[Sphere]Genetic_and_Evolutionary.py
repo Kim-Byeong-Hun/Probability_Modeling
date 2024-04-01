@@ -40,18 +40,18 @@ solution, solution_fitness, solution_idx = ga_instance.best_solution()
 print(f"최적 가격 설정: {solution}")
 print(f"예상 최대 수익: {solution_fitness}")
 
-# best만
-ga_instance.plot_fitness()
+# # best만
+# ga_instance.plot_fitness()
 
-# best / mean 비교 그래프
-plt.figure(figsize=(12, 6))
-plt.plot(best_fitness, label='Best Fitness', color='black')
-plt.plot(mean_fitness, label='Mean Fitness', linestyle='--', color='grey')
-plt.title('Generation vs. Fitness')
-plt.xlabel('Generation')
-plt.ylabel('Fitness')
-plt.legend(loc='best')
-plt.show()
+# # best / mean 비교 그래프
+# plt.figure(figsize=(12, 6))
+# plt.plot(best_fitness, label='Best Fitness', color='black')
+# plt.plot(mean_fitness, label='Mean Fitness', linestyle='--', color='grey')
+# plt.title('Generation vs. Fitness')
+# plt.xlabel('Generation')
+# plt.ylabel('Fitness')
+# plt.legend(loc='best')
+# plt.show()
 
 last_generation_solutions = ga_instance.population
 last_generation_fitness = ga_instance.last_generation_fitness
@@ -66,3 +66,21 @@ plt.xlabel('x1')
 plt.ylabel('x2')
 plt.colorbar(label='Fitness')
 plt.show()
+
+# # 최종 세대의 인구에서 각 유전자(변수)의 값을 추출
+# last_gen = np.array([ind for ind in ga_instance.population])
+
+# # 각 유전자에 대한 분포를 바이올린 플롯으로 그림
+# plt.figure(figsize=(13, 7))
+# parts = plt.violinplot(last_gen, showmeans=False, showmedians=True)
+
+# # 바이올린 플롯 스타일링
+# for pc in parts['bodies']:
+#     pc.set_facecolor('#1b9e77')
+#     pc.set_edgecolor('black')
+#     pc.set_alpha(1)
+
+# plt.title('Distribution of Each Variable in the Last Generation')
+# plt.xlabel('Variable Index')
+# plt.ylabel('Value')
+# plt.show()
