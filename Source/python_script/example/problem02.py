@@ -27,12 +27,8 @@ y = data[['species_Adelie', 'species_Chinstrap', 'species_Gentoo']].idxmax(axis=
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# 데이터 샘플링 (전체 데이터셋이 클 경우)
-sample_fraction = 0.5  # 데이터의 50%만 사용
-X_sampled, _, y_sampled, _ = train_test_split(X_scaled, y, train_size=sample_fraction, random_state=42)
-
 # 학습 데이터와 테스트 데이터 분리
-X_train, X_test, y_train, y_test = train_test_split(X_sampled, y_sampled, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
 class PenguinSpeciesPredictionProblem(Problem):
 
