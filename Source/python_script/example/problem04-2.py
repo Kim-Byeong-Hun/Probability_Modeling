@@ -20,7 +20,7 @@ selected_features = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm']
 # 독립 변수(X)와 종속 변수(y) 분리
 X = data[selected_features]
 y = data[['species_Adelie', 'species_Chinstrap', 'species_Gentoo']].idxmax(axis=1)  # 종을 예측할 목표 변수로 설정
-y = [1 if label == 'species_Chinstrap' else 0 for label in y]
+y = [1 if label == 'species_Gentoo' else 0 for label in y]
 
 # 데이터 스케일링
 scaler = StandardScaler()
